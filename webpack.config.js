@@ -1,9 +1,18 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    mode: 'development',
+    entry: './src/main.js',
     output: {
-        filename: 'main.js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['css-loader']
+            }
+        ]
+    }
 };
